@@ -1,0 +1,429 @@
+
+/*********For modal*****************/
+
+.modal
+{
+    position:absolute;
+    top:0;
+    left: 50px;
+    height:100vh;
+    width:100%;
+    z-index:1;
+    background-color: rgba(158, 158, 158,0.7);
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+
+}
+
+.modal-container
+{
+    width:700px;
+    margin: 0 auto;
+    background-color: white;
+    padding:50px 32px;
+    text-align: center;
+}
+
+.hide
+{
+    display:none;
+}
+
+#modal-section
+{
+    display:grid;
+    grid-template-columns: auto auto ;
+ 
+}
+
+#modal-section > div:nth-child(even)
+{
+    background-color: #F1D310;
+    border-width:5px;
+    border-style:solid;
+    border-color:rgb(0, 171, 223);
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+#modal-section > div:nth-child(odd)
+{
+    background-color: #2a8ac2;
+    
+   
+   
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+/*
+#modal-section > div:nth-child(odd)
+{
+    background-color: royalblue;
+
+   
+}
+
+#modal-section > div:nth-child(even)
+{
+    background-color: #F1D310;
+    border-width:10px;
+    border-style:solid;
+    border-color:rgb(0, 171, 223);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+#modal-section > div:nth-child(1)
+{
+    grid-column-start: 1;
+    grid-column-end: 2; 
+    
+    grid-row-start: 1;
+
+    grid-row-end: 2;
+    z-index: 5;
+   
+}
+*/
+
+
+
+
+
+/****************************Add Form *********************/
+
+/********************ADD FORM***********************/
+
+.form-control-container
+{
+    margin-top: 20px;
+}
+
+.form-control-container label , .form-control-container input 
+{
+    display:block;
+}
+
+.form-control-container label 
+{
+    font-weight: bold;
+}
+
+.form-control 
+{
+    margin-top: 10px;
+    width:50%;
+    border: 1px solid black;
+    padding:5px;
+   overflow-wrap: normal;
+}
+input[type=text].form-control
+{
+    height:15px;
+    width: 100px;
+}
+
+
+
+
+
+/***************************For Cash Register*****************/
+.result {
+  height: 60px;
+  background-color: #bbb;
+  width: 100%;
+}
+
+.result p {
+  font-size: 40px;
+  margin: 5px;
+
+}
+
+.calculator-body {
+  max-width: 400px;
+  margin: auto;
+}
+
+.button {
+  display: block;
+  width: 70%;
+  background-color: #bbb;
+}
+
+button {
+  width: 25%;
+  height: 60px;
+  font-size: 30px;
+}
+
+
+.container-name div { 
+  display: inline-block; 
+width: 500px; 
+min-height: 50px; 
+background-color: #eee; 
+height: auto; 
+
+
+} 
+
+#second-section
+{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+ 
+}
+
+#second-section > div:nth-child(even)
+{
+    background-color: royalblue;
+}
+
+#second-section > div:nth-child(odd)
+{
+    background-color: #F1D310;
+    border-width:10px;
+    border-style:solid;
+    border-color:rgb(0, 171, 223);
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+
+#second-section > div:nth-child(1)
+{
+    grid-column-start: 1;
+    grid-column-end: 2; 
+    
+    grid-row-start: 1;
+
+    grid-row-end: 2;
+    z-index: 5;
+   
+}
+
+
+#second-section > div:nth-child(4)
+{
+    grid-row-start: 2;
+    grid-row-end: 2;
+    grid-column: 1;
+    z-index: 6;
+}
+
+
+#second-section > div:nth-child(9)
+{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row:4
+}
+body{
+  background-color: #F1D310
+}
+
+.headerwhe
+{
+  align-items: center;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  font-size:larger;
+  font-weight: bolder;
+  color:royalblue;
+  margin-bottom: 0;
+}
+
+.buttonRound {
+  background-color:midnightblue;/* Green */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  display:inline-block;
+  border:6px solid #3e19cf;
+  box-shadow: 3px 4px 0px 0px #54218a;
+  text-shadow:0px 1px 0px #280580;
+  font-size:28px;
+  background:-o-linear-gradient(top, #0020bd 5%, #ac38f0 100%);
+	background:-ms-linear-gradient(top, #0020bd 5%, #ac38f0 100%);
+	background:linear-gradient(to bottom, #0020bd 5%, #ac38f0 100%);
+ 
+ 
+}
+
+.buttonRound5 
+{
+  border-radius: 50%;
+   height: 100px;
+  width: 100px;
+  font-weight:bold;
+  text-shadow:0px 1px 0px #280580;
+}
+
+
+.container
+{
+  width:90%;
+ margin-left: 70px;
+ 
+}
+.button-Num
+{
+
+	box-shadow: 0px 10px 14px -7px #3a5e63;
+	background:-o-linear-gradient(top, #1b1f21 5%, #071c1f 100%);
+	background:-ms-linear-gradient(top, #1b1f21 5%, #071c1f 100%);
+	background:linear-gradient(to bottom, #1b1f21 5%, #071c1f 100%);	
+	background-color:#1b1f21;
+
+	border-radius:8px;
+	border:5px solid #99b2c2;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:12px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #256980;
+}
+
+.button-Num:active {
+  border:5px solid #fc2702;
+}
+
+.button-Num:visited { 
+  border:5px solid #fc2702;
+}
+
+.button-Num:focus
+{
+  border:5px solid #fc2702;
+}
+
+.button-Num.selected{
+
+   border:5px solid #fc2702;
+}
+
+
+
+.button-Cash-Clear
+{
+
+  box-shadow: 0px 10px 14px -7px  #000000;
+	background:-o-linear-gradient(top, #ffe100 5%, #b89816 100%);
+	background:-ms-linear-gradient(top,  #ffe100 5%, #b89816 100%);
+	background:linear-gradient(to bottom,  #ffe100 5%, #b89816 100%);	
+	background-color:#ffe100;
+
+	border-radius:20px;
+	border:5px solid #b6c3;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:10px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0f027;
+
+	
+}
+
+
+.imageCSS
+{
+  width: 100%;
+  height:250px;
+}
+span{
+  font-weight: bold;
+}
+.result{
+  border:royalblue;
+}
+
+p{
+  padding: 5px; 
+}
+
+
+.button-Active
+{
+
+	box-shadow: 0px 10px 14px -7px #3a5e63;
+	background:-o-linear-gradient(top, #1b1f21 5%, #071c1f 100%);
+	background:-ms-linear-gradient(top, #1b1f21 5%, #071c1f 100%);
+	background:linear-gradient(to bottom, #1b1f21 5%, #071c1f 100%);	
+	background-color:#1b1f21;
+  border:5px solid #fc2702;
+	border-radius:8px;
+	
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:28px;
+	font-weight:bold;
+	padding:12px 23px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #256980;
+}
+
+
+.button-modalOld
+{
+
+  box-shadow: 0px 10px 14px -7px  #000000;
+	background:-o-linear-gradient(top, #ffe100 5%, #b89816 100%);
+	background:-ms-linear-gradient(top,  #ffe100 5%, #b89816 100%);
+	background:linear-gradient(to bottom,  #ffe100 5%, #b89816 100%);	
+	background-color:#ffe100;
+
+	border-radius:10px;
+	border:5px solid #b6c3;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:10px;
+	font-weight:bold;
+	padding:10px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b0f027;
+
+	
+}
+
+.button-modal{
+	box-shadow: 0px 1px 0px 0px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:0px 9px;
+  height:30px;
+	text-decoration:none;
+}
+
+
+
+
