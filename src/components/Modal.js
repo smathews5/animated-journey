@@ -24,7 +24,7 @@ const Modal = (props) => {
             <div>
 
           <div>&nbsp;&nbsp;&nbsp;Enter Amount Received :</div> <br/>
-          <div> Total $:{props.ticketPrice} </div><br/>
+          <div> Total $:{props.ticketPrice * props.ticketCount} </div><br/>
            <label htmlFor="cashReceived">  Received&nbsp;&nbsp;</label>
            <input className="form-control " type="text" id="cashReceived"  value = {cashReceived} onChange={(event)=>{
             setCashReceived(event.target.value);

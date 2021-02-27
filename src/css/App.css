@@ -382,6 +382,24 @@ p{
 	text-shadow:0px 1px 0px #256980;
 }
 
+.button-Active:active {
+  border:5px solid #fc2702;
+}
+
+.button-Active:visited { 
+  border:5px solid #fc2702;
+}
+
+.button-Active:focus
+{
+  border:5px solid #fc2702;
+}
+
+.button-Active.selected{
+
+   border:5px solid #fc2702;
+}
+
 
 .button-modalOld
 {
