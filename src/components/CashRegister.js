@@ -115,7 +115,12 @@ const CashRegister = (props) => {
 
                             }}>Cash</button>
 
-                            <button class="button-Cash-Clear" name="clear" onClick={e => this.props.onClick(e.target.name)}>Clear</button><br />
+                            <button class="button-Cash-Clear" name="clear" onClick={() => {
+
+                                props.clearRegister();
+                                //clear the state after movie is added
+
+                            }}>Clear</button>
 
 
 
@@ -127,12 +132,12 @@ const CashRegister = (props) => {
                         <h3>Numbers Selected: </h3>
                         <span >{activeTicketsDisplay}</span><br />
                     </p>
-                    <p>{props.ticketCount}</p>
+                  <p> </p>
+                  <p></p>
                     <p>
                         <h3 >Total $:{props.ticketPrice * props.ticketCount} </h3>
                     </p>
-                    <p>Final Price: {props.ticketPrice}</p>
-
+                   
                   
                 </div>
 

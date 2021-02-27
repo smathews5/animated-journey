@@ -25,6 +25,8 @@ const App = () => {
  { "name": "19", "isActive": false }, { "name": "20", "isActive": false }
   ];
 
+
+
   let [tickets, setTicketsSelected] = useState([]);
   const [ticketCount, setTicketCount] = useState([0]);
  //const [totalAmount, setTotalAmount] = useState(0);
@@ -33,13 +35,18 @@ const App = () => {
 
  
 
-  
+  const clearRegister = ()=>{
+    setTicketStatus(initialTicketSatus);
+    setTicketPrice(0);
+    setTicketCount(0);
+    
+  }
 
   const storeTickets = (ticketNo) => {
-    
-   //alert("Storeticket ticketCount"+ ticketCount);
-    if (ticketCount+1 > 5) {
-      alert("Only 5 tickets can be bought at a time");
+   // alert("ticketNo:"+ ticketNo);
+   //alert("getButtonStatus()"+ getButtonStatus(ticketNo));
+    if (ticketCount+1 > 5  && !getButtonStatus(ticketNo).isActive) {
+     alert("Only 5 tickets can be bought at a time");
       return;
     }
 
@@ -53,10 +60,13 @@ const App = () => {
 
 
   const getButtonStatus = (buttonId) => {
+    //alert("getButtonStatus:")
     let currentTicketStatus = ticketStatus.filter((ticket) => {
       return ticket.name == buttonId
     })
-    return currentTicketStatus[0].isActvie;
+  //  alert("getButtonStatus:"+ JSON.stringify(currentTicketStatus));
+    //alert("getButtonStatus:"+ currentTicketStatus[0].isActvie);
+    return currentTicketStatus[0];
   }
 
 
@@ -68,10 +78,10 @@ const App = () => {
 
  
   const storeTicketPrice = (priceEntered) => {
-    alert ( "ticketPrice:"+ ticketPrice  +   "  priceEntered:"+ priceEntered + " ticketCount:");
+    //alert ( "ticketPrice:"+ ticketPrice  +   "  priceEntered:"+ priceEntered + " ticketCount:");
     //const activeTickets = ticketStatus.filter( tkt=>{ return tkt.isActive});
      let finalPrice = ticketPrice + (1*  priceEntered);
-     alert ( "finalPrice:"+ finalPrice);
+    // alert ( "finalPrice:"+ finalPrice);
      setTicketPrice(finalPrice);
     //const total = finalPrice * ticketCount;
     //alert (total);
@@ -97,13 +107,22 @@ const App = () => {
     })
   }
 
+  const showModal = () => {
+    setModal({
+      msg: "",
+      visible: true
+    })
+  }
+
   return (
     <>
       <Header />
-      <Modal modalState={modal} onHide={hideModal} ticketCount={ticketCount} ticketPrice={ticketPrice} />
+      <Modal modalState={modal} onHide={hideModal} onShow={showModal} ticketCount={ticketCount}
+       ticketPrice={ticketPrice} />
       <CashRegister tickets={tickets} ticketCount={ticketCount} ticketPrice={ticketPrice}
         onDollarClick={storeTicketPrice} onAddTickets={storeTickets} 
         getButtonStatus={getButtonStatus} ticketStatus={ticketStatus} onPayCash={payCash}
+        clearRegister={clearRegister}
 
         
       />
