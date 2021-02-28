@@ -40,9 +40,11 @@ const Modal = () => {
                                 
                                     <button  className="button-modal" onClick={() => {
                                         //alert("Cash Received"+cashReceived);
-                                        setChangeGiven((cashReceived-totalAmt).toFixed(2))
+                                        setChangeGiven((cashReceived-totalAmt).toFixed(2));                                      
+                                        setCashReceived( parseFloat(cashReceived).toFixed(2));
+                                    
                                     }}>Confirm</button>&nbsp;
-
+                                
                                     
                                   <button className="button-modal" name="close" onClick={() => {
                                     hideModal()
