@@ -1,18 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Modal = (props) => {
+import {useContext} from "react";
+import ModalContext from "../context/ModalContext";
 
+const Modal = () => {
 
+  const {popupModaMessage,hidePopupModal} = useContext(ModalContext);
     return (
-        <div className={(props.popupModaMessage.visible=== true ? "" : "hide")} >
+        <div className={(popupModaMessage.visible=== true ? "" : "hide")} >
             <div className="popUp-Modal" >            
              <div className="popUp-Modal-container">                         
                   <div> <p>                            
-                    {props.popupModaMessage.msg}
+                    {popupModaMessage.msg}
                       </p>                              
                         <button className="button-modal" name="close" onClick={() => {
-                           props.onHidePopup()
+                          hidePopupModal()
                           }}>Close</button>
                    </div>
               </div>                               

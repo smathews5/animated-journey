@@ -1,17 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Modal = (props) => {
+import {useContext} from "react";
+import ModalContext from "../context/ModalContext";
 
-   
-    const totalAmt = props.ticketPrice * props.ticketCount;
+const Modal = () => {
+
+    const {modal,hideModal,showModal,ticketCount,ticketPrice} = useContext(ModalContext);
+
+    const totalAmt = ticketPrice * ticketCount;
     const [cashReceived, setCashReceived] = useState("");
     const [changeGiven, setChangeGiven] = useState("");
   
            
 
     return (
-        <div className={(props.modalState.visible=== true ? "" : "hide")} >
+        <div className={(modal.visible=== true ? "" : "hide")} >
             <div className="modal" >
                
                     <div className="">
@@ -41,7 +45,7 @@ const Modal = (props) => {
 
                                     
                                   <button className="button-modal" name="close" onClick={() => {
-                                        props.onHide()
+                                    hideModal()
                                     }}>Close</button><br /><br /><br /><br />
                                 </div>
 

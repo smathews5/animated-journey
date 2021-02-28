@@ -1,11 +1,15 @@
 import React from 'react'
 
+import CashRegisterContext from "../context/CashRegisterContext";
+import ModalContext from "../context/ModalContext";
+
 import Header from "./Header";
 import CashRegister from "./CashRegister";
 import Modal from "./Modal";
 import '../css/App.css';
 import { useState} from 'react';
 import PopupModal from "./PopupModal";
+import Footer from "./Footer";
 
 
 const App = () => {
@@ -125,16 +129,17 @@ const App = () => {
 
   return (
     <>
-      <Header />
-      <Modal modalState={modal} onHide={hideModal} onShow={showModal} ticketCount={ticketCount}
-       ticketPrice={ticketPrice} />
-      <CashRegister tickets={tickets} ticketCount={ticketCount} ticketPrice={ticketPrice}
-        onDollarClick={storeTicketPrice} onAddTickets={storeTickets} 
-        getButtonStatus={getButtonStatus} ticketStatus={ticketStatus} onPayCash={payCash}
-        clearRegister={clearRegister}       
-      />
-      <PopupModal popupModaMessage={popupModaMessage} onShowPopup={showPopupModal} onHidePopup={hidePopupModal}  />
 
+    <CashRegisterContext.Provider value = {{tickets,ticketCount,ticketPrice,storeTicketPrice,storeTickets,getButtonStatus,
+      ticketStatus,payCash,clearRegister}}>
+       <ModalContext.Provider value = {{modal,hideModal,showModal,ticketCount,ticketPrice,popupModaMessage,hidePopupModal}}>
+              <Header />
+              <Modal />
+              <CashRegister />
+              <PopupModal  />
+              <Footer/>
+      </ModalContext.Provider>
+      </CashRegisterContext.Provider>
     </>
   )
 }
