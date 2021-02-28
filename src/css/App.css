@@ -224,11 +224,13 @@ text-shadow:   1px 1px #000000;
    overflow-wrap: normal;
    font-weight: bold;
    color:white;
+   text-align: right;
 }
 input[type=text].form-control
 {
     height:15px;
     width: 100px;
+    font-weight: bolder;
 }
 
 

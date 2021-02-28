@@ -6,7 +6,7 @@ import ModalContext from "../context/ModalContext";
 
 const Modal = () => {
 
-    const {modal,hideModal,showModal,ticketCount,ticketPrice} = useContext(ModalContext);
+    const {modal,hideModal,ticketCount,ticketPrice} = useContext(ModalContext);
 
     const totalAmt = ticketPrice * ticketCount;
     const [cashReceived, setCashReceived] = useState("");
@@ -26,7 +26,7 @@ const Modal = () => {
                                 <div>
                                     <div className="modal-font">Cash </div> <br />
                                     <div className="modal-font2">Enter Amount Received </div> <br />
-                                    <div className="modal-font2"> Total $:{totalAmt} </div><br />
+                                    <div className="modal-font2"> Total $:{totalAmt.toFixed(2)} </div><br />
                                     <label htmlFor="cashReceived">  Received&nbsp;&nbsp;</label>
                                     <input className="form-control" type="text" disabled = "true"  id="cashReceived" value={cashReceived} onChange={(event) => {
                                         setCashReceived(event.target.value);
@@ -40,7 +40,7 @@ const Modal = () => {
                                 
                                     <button  className="button-modal" onClick={() => {
                                         //alert("Cash Received"+cashReceived);
-                                        setChangeGiven(cashReceived-totalAmt)
+                                        setChangeGiven((cashReceived-totalAmt).toFixed(2))
                                     }}>Confirm</button>&nbsp;
 
                                     
@@ -58,7 +58,7 @@ const Modal = () => {
                                              setCashReceived(cashReceived+"8");
                                         }}>8</button>                                       
 
-                                        <button className="modal-buttonKeyPad" className="modal-buttonKeyPad" name="9" onClick={() => {
+                                        <button className="modal-buttonKeyPad"  name="9" onClick={() => {
                                             setCashReceived(cashReceived+"9");
                                        }}>9</button><br />
 
@@ -87,7 +87,7 @@ const Modal = () => {
                                        }}>3</button> <br />
 
                                         <button className="modal-buttonKeyPad" name="0" onClick={() => {
-                                            setCashReceived(cashReceived+"4");
+                                            setCashReceived(cashReceived+"0");
                                        }}>0</button>
 
                                         <button className="modal-buttonKeyPad" name="." onClick={(event) => {

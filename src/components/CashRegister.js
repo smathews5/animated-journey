@@ -8,7 +8,7 @@ import lotteryBall1 from "../images/lottery-balls-on-yellow-background.jpg"
 
 const CashRegister = () => {
 
-    const {tickets,ticketCount,ticketPrice,storeTicketPrice,storeTickets,getButtonStatus,
+    const {ticketCount,ticketPrice,storeTicketPrice,storeTickets,
         ticketStatus,payCash,clearRegister} = useContext(CashRegisterContext);
   
     const activeTickets = ticketStatus.filter( tkt=>{ return tkt.isActive})
@@ -133,7 +133,7 @@ const CashRegister = () => {
                   <p> </p>
                   <p></p>
                     <p>
-                        <h3 >Total $:{ticketPrice * ticketCount} </h3>
+                        <h3 >Total $:{(ticketPrice * ticketCount).toFixed(2)} </h3>
                     </p>
                                      
                 </div>

@@ -2,14 +2,12 @@ import React from 'react'
 
 import CashRegisterContext from "../context/CashRegisterContext";
 import ModalContext from "../context/ModalContext";
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import Home from "../pages/Home";
 
-import Header from "./Header";
-import CashRegister from "./CashRegister";
-import Modal from "./Modal";
 import '../css/App.css';
 import { useState} from 'react';
-import PopupModal from "./PopupModal";
-import Footer from "./Footer";
+
 
 
 const App = () => {
@@ -18,7 +16,7 @@ const App = () => {
     msg: '',
     visible: false
   });
-
+  
 
   const initialTicketSatus = [
  { "name": "1", "isActive": false }, { "name": "2", "isActive": false },{ "name": "3", "isActive": false },
@@ -48,7 +46,7 @@ const App = () => {
   const clearRegister = ()=>{
     setTicketStatus(initialTicketSatus);
     setTicketPrice(0);
-    setTicketCount(0);
+    setTicketCount(0);  
     
   }
 
@@ -120,26 +118,28 @@ const App = () => {
     })
   }
 
-  const showPopupModal = () => {
+ /* const showPopupModal = () => {
     setPopupModalMessage({
       msg: "",
       visible: true
     })
-  }
+  } */
 
   return (
     <>
 
-    <CashRegisterContext.Provider value = {{tickets,ticketCount,ticketPrice,storeTicketPrice,storeTickets,getButtonStatus,
+    <CashRegisterContext.Provider value = {{ticketCount,ticketPrice,storeTicketPrice,storeTickets,
       ticketStatus,payCash,clearRegister}}>
-       <ModalContext.Provider value = {{modal,hideModal,showModal,ticketCount,ticketPrice,popupModaMessage,hidePopupModal}}>
-              <Header />
-              <Modal />
-              <CashRegister />
-              <PopupModal  />
-              <Footer/>
+     <ModalContext.Provider value = {{modal,hideModal,showModal,ticketCount,ticketPrice,popupModaMessage,hidePopupModal}}>
+            <Router>
+               <Switch>
+                    <Route exact path = "/">
+                        <Home />
+                    </Route >
+                </Switch>
+             </Router>
       </ModalContext.Provider>
-      </CashRegisterContext.Provider>
+    </CashRegisterContext.Provider>
     </>
   )
 }
