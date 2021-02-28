@@ -232,6 +232,12 @@ input[type=text].form-control
     width: 100px;
     font-weight: bolder;
 }
+h5{
+  text-align: center;
+}
+h1{
+  text-align: center;
+}
 
 
 
@@ -547,5 +553,10 @@ p{
   height:30px;
 	text-decoration:none;
 }
-
+.error
+{
+    display:block;
+    color:red;
+    font-size:cal(1rem -2px);
+}
 

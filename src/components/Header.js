@@ -6,14 +6,9 @@ const Header = () => {
 <>
 
 <div className = "headerwhe">
-<h1><center>WHE WHE on D' Avenue</center></h1>
+<h1>WHE WHE on D' Avenue</h1>
 </div>
 
-
-
-
-        
-     
  </>       
     )
 }

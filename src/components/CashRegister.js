@@ -2,9 +2,7 @@ import React from 'react'
 
 import {useContext} from 'react';
 import CashRegisterContext from "../context/CashRegisterContext";
-import lotteryBall1 from "../images/lottery-balls-on-yellow-background.jpg"
-
-
+import lotteryBall1 from "../images/lottery-balls-on-yellow-background.jpg";
 
 const CashRegister = () => {
 
@@ -42,11 +40,8 @@ const CashRegister = () => {
 
                     <p> <center>
                         <div >
-
                             <button className={ticketStatus[0].isActive ? "button-Active" : "button-Num"} name="1" onClick={() => {storeTickets("1") }}
-                            >1
-
-                            </button>
+                            >1 </button>
 
 
                             <button className={ticketStatus[1].isActive ? "button-Active" : "button-Num"} name="2" onClick={() => {storeTickets("2") }}
@@ -117,15 +112,14 @@ const CashRegister = () => {
 
                             <button className="button-Cash-Clear" name="clear" onClick={() => {
 
-                               clearRegister();
-                                //clear the state after movie is added
+                               clearRegister();                               
 
                             }}>Clear</button>
 
                         </div>
                     </center> </p>
                 </div>
-                <div >
+                <div >             
                     <p>
                         <h3>Numbers Selected: </h3>
                         <span >{activeTicketsDisplay}</span><br />

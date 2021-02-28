@@ -1,5 +1,4 @@
 import React from 'react'
-
 import CashRegisterContext from "../context/CashRegisterContext";
 import ModalContext from "../context/ModalContext";
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
@@ -42,12 +41,10 @@ const App = () => {
   });
 
  
-
   const clearRegister = ()=>{
     setTicketStatus(initialTicketSatus);
     setTicketPrice(0);
-    setTicketCount(0);  
-    
+    setTicketCount(0);      
   }
 
   const storeTickets = (ticketNo) => {
@@ -127,7 +124,6 @@ const App = () => {
 
   return (
     <>
-
     <CashRegisterContext.Provider value = {{ticketCount,ticketPrice,storeTicketPrice,storeTickets,
       ticketStatus,payCash,clearRegister}}>
      <ModalContext.Provider value = {{modal,hideModal,showModal,ticketCount,ticketPrice,popupModaMessage,hidePopupModal}}>

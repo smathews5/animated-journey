@@ -11,7 +11,7 @@ const Modal = () => {
     const totalAmt = ticketPrice * ticketCount;
     const [cashReceived, setCashReceived] = useState("");
     const [changeGiven, setChangeGiven] = useState("");
-  
+    const [errorReceived, setErrorReceived]  = useState("");
            
 
     return (
@@ -26,13 +26,14 @@ const Modal = () => {
                                 <div>
                                     <div className="modal-font">Cash </div> <br />
                                     <div className="modal-font2">Enter Amount Received </div> <br />
+                                    <span className="error">{errorReceived}</span><br />
                                     <div className="modal-font2"> Total $:{totalAmt.toFixed(2)} </div><br />
                                     <label htmlFor="cashReceived">  Received&nbsp;&nbsp;</label>
                                     <input className="form-control" type="text" disabled = "true"  id="cashReceived" value={cashReceived} onChange={(event) => {
                                         setCashReceived(event.target.value);
                                     }} />
-                                    <br />
-                                    
+                                    <br />                                  
+                                                                      
                                     <label htmlFor="changeAmt"> Change&nbsp;&nbsp;&nbsp;&nbsp;</label>
    
                                     <input className="form-control" type="text" disabled = "true"  value={changeGiven} /> <br /><br /><br />
@@ -40,18 +41,30 @@ const Modal = () => {
                                 
                                     <button  className="button-modal" onClick={() => {
                                         //alert("Cash Received"+cashReceived);
+
+                                        if(cashReceived === "")
+                                        {
+                                            setErrorReceived("Please enter cash received");                                           
+                                        }
+                                        else
+                                        {
                                         setChangeGiven((cashReceived-totalAmt).toFixed(2));                                      
                                         setCashReceived( parseFloat(cashReceived).toFixed(2));
+                                        }
                                     
                                     }}>Confirm</button>&nbsp;
                                 
                                     
                                   <button className="button-modal" name="close" onClick={() => {
                                     hideModal()
+                                   setChangeGiven("")
+                                   setCashReceived("")
+                                   setErrorReceived("")
                                     }}>Close</button><br /><br /><br /><br />
                                 </div>
 
                                 <div className="modal-button">
+                                <p></p>
                                     <p >
                                         <button className="modal-buttonKeyPad" name="7" onClick={() => {
                                             setCashReceived(cashReceived+"7");
