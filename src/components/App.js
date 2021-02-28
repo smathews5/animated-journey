@@ -1,10 +1,11 @@
 import React from 'react'
-import KeyPad from "./KeyPad";
+
 import Header from "./Header";
 import CashRegister from "./CashRegister";
 import Modal from "./Modal";
 import '../css/App.css';
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
+import PopupModal from "./PopupModal";
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
     visible: false
   });
 
-  const buttonStaus = false;
+
   const initialTicketSatus = [
  { "name": "1", "isActive": false }, { "name": "2", "isActive": false },{ "name": "3", "isActive": false },
  { "name": "4", "isActive": false }, { "name": "5", "isActive": false },{ "name": "6", "isActive": false },
@@ -29,9 +30,14 @@ const App = () => {
 
   let [tickets, setTicketsSelected] = useState([]);
   const [ticketCount, setTicketCount] = useState([0]);
- //const [totalAmount, setTotalAmount] = useState(0);
   const [ticketPrice, setTicketPrice] = useState(0);
   const [ticketStatus, setTicketStatus] = useState(initialTicketSatus);
+  
+
+  const [popupModaMessage, setPopupModalMessage] = useState({
+    msg: '',
+    visible: false
+  });
 
  
 
@@ -46,7 +52,8 @@ const App = () => {
    // alert("ticketNo:"+ ticketNo);
    //alert("getButtonStatus()"+ getButtonStatus(ticketNo));
     if (ticketCount+1 > 5  && !getButtonStatus(ticketNo).isActive) {
-     alert("Only 5 tickets can be bought at a time");
+      setPopupModalMessage({"msg":"Sorry,only 5 tickets can be bought at a time!", "visible":true});
+  
       return;
     }
 
@@ -60,13 +67,10 @@ const App = () => {
 
 
   const getButtonStatus = (buttonId) => {
-    //alert("getButtonStatus:")
-    let currentTicketStatus = ticketStatus.filter((ticket) => {
-      return ticket.name == buttonId
+   let currentTicketStatus = ticketStatus.filter((ticket) => {
+      return ticket.name === buttonId
     })
-  //  alert("getButtonStatus:"+ JSON.stringify(currentTicketStatus));
-    //alert("getButtonStatus:"+ currentTicketStatus[0].isActvie);
-    return currentTicketStatus[0];
+     return currentTicketStatus[0];
   }
 
 
@@ -78,20 +82,11 @@ const App = () => {
 
  
   const storeTicketPrice = (priceEntered) => {
-    //alert ( "ticketPrice:"+ ticketPrice  +   "  priceEntered:"+ priceEntered + " ticketCount:");
-    //const activeTickets = ticketStatus.filter( tkt=>{ return tkt.isActive});
-     let finalPrice = ticketPrice + (1*  priceEntered);
-    // alert ( "finalPrice:"+ finalPrice);
+      let finalPrice = ticketPrice + (1*  priceEntered);
      setTicketPrice(finalPrice);
-    //const total = finalPrice * ticketCount;
-    //alert (total);
-    //setTotalAmount(total );
-   //alert ( "totalAmount:"+ totalAmount);
+  
   }
 
-
-
- 
 
   const payCash = () => {
 
@@ -114,6 +109,20 @@ const App = () => {
     })
   }
 
+  const hidePopupModal = () => {
+    setPopupModalMessage({
+      msg: "",
+      visible: false
+    })
+  }
+
+  const showPopupModal = () => {
+    setPopupModalMessage({
+      msg: "",
+      visible: true
+    })
+  }
+
   return (
     <>
       <Header />
@@ -122,10 +131,9 @@ const App = () => {
       <CashRegister tickets={tickets} ticketCount={ticketCount} ticketPrice={ticketPrice}
         onDollarClick={storeTicketPrice} onAddTickets={storeTickets} 
         getButtonStatus={getButtonStatus} ticketStatus={ticketStatus} onPayCash={payCash}
-        clearRegister={clearRegister}
-
-        
+        clearRegister={clearRegister}       
       />
+      <PopupModal popupModaMessage={popupModaMessage} onShowPopup={showPopupModal} onHidePopup={hidePopupModal}  />
 
     </>
   )

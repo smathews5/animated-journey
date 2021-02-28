@@ -1,47 +1,41 @@
 import React from 'react'
-//import lotteryBall1 from  "../images/lotteryBallClip.png"
 import lotteryBall1 from "../images/lottery-balls-on-yellow-background.jpg"
 
 
 
 const CashRegister = (props) => {
-    const text = props.tickets + '';
+  
     const activeTickets = props.ticketStatus.filter( tkt=>{ return tkt.isActive})
     //alert(JSON.stringify(activeTickets));
     let activeTicketsDisplay = activeTickets.map((tkt,i) => {
         return   <p key={i}>Mark: {tkt.name}</p>
        }); 
      //  alert(activeTicketsDisplay);
-   let totalTicketCount = activeTickets.length;
-  
- 
-    let newText = text.split('\n').map((item, i) => <p key={i}>{item}</p>);
+
     return (
         <div className="container">
             <section id="second-section">
                 <div>
 
-                    <img className="imageCSS" src={lotteryBall1} />
+                    <img className="imageCSS" src={lotteryBall1} alt="lotteryBall"/>
                     <p><center>
-                        <button class="buttonRound buttonRound5" name="1" onClick={() => { props.onDollarClick('1') }}
+                        <button className="buttonRound buttonRound5" name="1" onClick={() => { props.onDollarClick('1') }}
                         >$1</button>
 
 
-                        <button class="buttonRound buttonRound5" name="5" onClick={() => { props.onDollarClick('5') }}>$5</button><br /><br />
+                        <button className="buttonRound buttonRound5" name="5" onClick={() => { props.onDollarClick('5') }}>$5</button><br /><br />
 
 
-                        <button class="buttonRound buttonRound5" name="10" onClick={() => { props.onDollarClick('10') }}>$10</button>
+                        <button className="buttonRound buttonRound5" name="10" onClick={() => { props.onDollarClick('10') }}>$10</button>
 
 
-                        <button class="buttonRound buttonRound5" name="20" onClick={() => { props.onDollarClick('20') }}>$20</button>
+                        <button className="buttonRound buttonRound5" name="20" onClick={() => { props.onDollarClick('20') }}>$20</button>
                     </center></p>
                 </div>
                 <div>
 
                     <p> <center>
                         <div >
-
-
 
                             <button className={props.ticketStatus[0].isActive ? "button-Active" : "button-Num"} name="1" onClick={() => { props.onAddTickets("1") }}
                             >1
@@ -108,21 +102,19 @@ const CashRegister = (props) => {
                             <button className={props.ticketStatus[19].isActive ? "button-Active" : "button-Num"} name="20" onClick={() => { props.onAddTickets("20") }}
                             >20</button>
 
-                            <button class="button-Cash-Clear" name="cash" onClick={() => {
+                            <button className="button-Cash-Clear" name="cash" onClick={() => {
 
                                 props.onPayCash();
-                                //clear the state after movie is added
+                               
 
                             }}>Cash</button>
 
-                            <button class="button-Cash-Clear" name="clear" onClick={() => {
+                            <button className="button-Cash-Clear" name="clear" onClick={() => {
 
                                 props.clearRegister();
                                 //clear the state after movie is added
 
                             }}>Clear</button>
-
-
 
                         </div>
                     </center> </p>
@@ -137,8 +129,7 @@ const CashRegister = (props) => {
                     <p>
                         <h3 >Total $:{props.ticketPrice * props.ticketCount} </h3>
                     </p>
-                   
-                  
+                                     
                 </div>
 
             </section>
